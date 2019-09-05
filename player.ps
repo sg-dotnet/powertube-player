@@ -5,7 +5,7 @@ $youtubeUrl = ""
 Do {
     $youtubeUrl = [Microsoft.VisualBasic.Interaction]::InputBox("Enter YouTube URL", "Watch", "")
 }
-While ($youtubeUrl -eq "")
+While (($youtubeUrl -eq "") -and ($youtubeUrl.SubString(0,[math]::min(32,$variable.length)) -eq 'https://www.youtube.com/watch?v='))
 
 $WebBrowser = New-Object System.Windows.Forms.WebBrowser
 $WebBrowser.Dock = [System.Windows.Forms.DockStyle]::Fill
